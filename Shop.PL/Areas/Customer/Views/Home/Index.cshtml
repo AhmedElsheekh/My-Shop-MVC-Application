@@ -1,0 +1,69 @@
+﻿
+@model IPagedList<ProductDetailsVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<div class="container">
+<form asp-action="Index">
+<div class="row form-group">
+    <div class="col-6">
+        <input type="text" name="searchValue" placeholder="Search" class="form-control"/>
+    </div>
+    <div class="col-3">
+        <input type="submit" value="Search" class="btn btn-primary"/>
+    </div>
+</div>
+</form>
+</div>
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">       
+            @foreach(var item in Model)
+            {
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <a asp-action="Details" asp-route-id="@item.Id">
+                            <img class="card-img-top" src="/Files/Images/@item.ImageUrl" alt="..." width="450" height="300" />
+                        </a>    
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">@item.Name</h5>
+                                <!-- Product price-->
+                                $@item.Price
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-dark mt-auto">View Details</a></div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div class="pagination-container">
+                @Html.PagedListPager(
+                    Model, 
+                    page => Url.Action(
+                        action: "Index",
+                        controller: "Home",
+                        values: new {area = "Customer", page}),
+                new PagedListRenderOptions
+                {
+                LiElementClasses = new string[] { "page-item" },
+                PageClasses = new string[] { "page-link" }
+                }
+            )
+    
+            </div>
+
+        </div>
+    </div>
+</section>
+

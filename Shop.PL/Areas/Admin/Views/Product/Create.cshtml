@@ -1,0 +1,65 @@
+﻿@model ProductCreateVM
+
+@{
+    ViewData["Title"] = "Create";
+    ViewData["ItemTitle"] = "Manage Products";
+    ViewData["SubTitle"] = "Create New Product";
+    var categoriesList = new SelectList(Model.Categories, "Id", "Name");
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Category</label>
+                <select asp-items="@categoriesList" asp-for="CategoryId" class="form-control">
+                    <option value="0" selected disabled>--Select Category</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" class="form-control" onchange="fillImage(event);"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4">
+        <div class="container">
+            <img id="imagePreview" height="400" width="400" src="~/Files/Images/@Model.ImageUrl" />
+        </div>
+    </div>
+
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script>
+    var fillImage = function(event){
+        var imageHolder = document.getElementById("imagePreview");
+        imageHolder.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>

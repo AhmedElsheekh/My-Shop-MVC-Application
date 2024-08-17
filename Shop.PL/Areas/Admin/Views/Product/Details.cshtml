@@ -1,0 +1,61 @@
+﻿@model ProductDetailsVM
+
+@{
+    ViewData["Title"] = "Details";
+    ViewData["ItemTitle"] = "Products Management";
+    ViewData["SubTitle"] = "Product Details";
+}
+
+<h1>Details</h1>
+
+@*<div class="row container">
+    <hr />
+    <dl @*class="row"*@ @*class="col-8">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CategoryName)
+        </dd>
+    </dl>
+    <div @*class="col-md-4"*@ @*class="col-4">
+        <div class="container">
+            <img height="400" width="400" src="~/Files/Images/@Model.ImageUrl" />
+        </div>
+    </div>
+</div>*@
+
+<div class="row container">
+    <div class="col-4">
+        <div>Name: <b>@Model.Name</b></div>
+        <div>Description: <b>@Model.Description</b></div>
+        <div>Price: <b>@Model.Price.ToString("c")</b></div>
+        <div>Category: <b>@Model.CategoryName</b></div>
+    </div>
+    <div class="col-med-4">
+        <img height="400" width="400" src="~/Files/Images/@Model.ImageUrl" />
+    </div>
+</div>
+
+
+
+<a asp-action="Update" asp-route-id="@Model.Id" class="btn btn-success">Edit</a>
+<a asp-action="Index" class="btn bt-primary">Back to List</a>
