@@ -3,6 +3,7 @@
 ## Overview
 My Shop is an e-commerce web application built using ASP.NET Core MVC. It allows users to browse products, add items to their shopping cart, and proceed to checkout. The application includes features such as product listing, category filtering, shopping cart management, and user authentication.
 
+
 ## Features
 - **Product Catalog**: Browse a list of products with details like name, price, description, and category.
 - **Category Filtering**: Filter products by category for easier navigation.
@@ -12,6 +13,7 @@ My Shop is an e-commerce web application built using ASP.NET Core MVC. It allows
 - **Pagination**: Paginated product listing for improved user experience.
 - **Admin Panel**: Manage products, categories, and orders through a dedicated admin interface.
 
+
 ## Technologies Used
 - **.NET 6**: Backend framework.
 - **ASP.NET Core MVC**: Web framework used for building the application.
@@ -20,6 +22,7 @@ My Shop is an e-commerce web application built using ASP.NET Core MVC. It allows
 - **SQL Server**: Database management system.
 - **Bootstrap**: CSS framework for responsive design.
 - **X.Web.PagedList**: Library used for pagination.
+
 
 ## Design and Architecture
 - **Generic Repository Pattern**
@@ -37,6 +40,7 @@ My Shop is an e-commerce web application built using ASP.NET Core MVC. It allows
 - **AutoMapper**
  AutoMapper is used to simplify the process of mapping between domain models and data transfer objects (DTOs). This reduces the need for manual mapping code and helps to keep the 
  application's codebase clean and maintainable
+
 
 ## Getting Started
 
@@ -70,17 +74,21 @@ My Shop is an e-commerce web application built using ASP.NET Core MVC. It allows
 
    Alternatively, you can open the project in Visual Studio and press `F5` to start debugging.
 
+
 ### Areas Structure
 The application uses ASP.NET Areas for better organization and separation of concerns. The following areas are included:
 
 - **Admin**: Contains controllers and views for managing products, categories, users and orders.
 - **Customer**: Contains controllers and views for user-facing features like product browsing and checkout.
 
+
 ### Pagination Setup
 The application uses the `X.Web.PagedList` library to implement pagination. The `PagedListPager` helper is configured to work seamlessly with ASP.NET Areas.
 
+
 ### Session Management
 The shopping cart functionality is managed using `HttpContext.Session`. Alternatively, a `ViewComponent` can be used to fetch the number of items in the cart dynamically.
+
 
 ## Usage
 - **Admin Panel**: Accessible at `/Admin/Dashboard/Index` after logging in with an admin account.
@@ -88,10 +96,12 @@ The shopping cart functionality is managed using `HttpContext.Session`. Alternat
 - **Product Browsing**: Browse products from the homepage or by name.
 - **Shopping Cart**: Add products to your cart and proceed to checkout.
 
+
 ## Contributing
 Contributions are welcome! Please submit a pull request or open an issue to discuss any changes or features.
 
+
 ## Contact
-For any questions or feedback, feel free to contact [https://github.com/AhmedElsheekh](mailto:your-email@example.com).
+For any questions or feedback, feel free to contact [ahmed.elsheekh8620@gmail.com](mailto:your-email@example.com).
 
 
